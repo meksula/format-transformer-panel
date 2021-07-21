@@ -3,7 +3,8 @@ FROM node:stretch as build
 RUN apt-get update \
  && apt-get install -y procps git net-tools curl vim \
  && mkdir format-transformer-panel \
- && npm install -g @angular/cli
+ && npm install -g @angular/cli \
+ && npm install --save-dev @angular-devkit/build-angular
 
 COPY . /format-transformer-panel
 
