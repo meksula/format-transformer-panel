@@ -17,59 +17,33 @@
 
 <div class="wrapper">
   <div>
-    <p>Convert from:</p>
-    <select name="format-from" id="format-from">
-      <option value="JSON">JSON</option>
-      <option value="YAML">YAML</option>
-      <option value="XML">XML</option>
-    </select>
-    <p>Convert to:</p>
-    <select name="format-to" id="format-to">
-      <option value="JSON">JSON</option>
-      <option value="YAML">YAML</option>
-      <option value="XML">XML</option>
-    </select>
+    <div style="display: inline-block; width: 20%; float: left;">
+      <p>Convert from:</p>
+      <select name="formatFrom" [(ngModel)]="formatFrom">
+        <option *ngFor="let option of options" [value]="option" >{{option}}</option>
+      </select>
+    </div>
+    <div style="display: inline-block; width: 20%; float: left;">
+      <p>Convert to:</p>
+      <select name="formatTo" [(ngModel)]="formatTo">
+        <option *ngFor="let option of options" [value]="option" >{{option}}</option>
+      </select>
+    </div>
+  </div>
+  <div style="display: inline-block; width: 20%;">
+    <button style="width: 150px; height: 80px;" (click)="convert()">Convert!</button>
   </div>
   <div class="left-area">
     <p>Output:</p>
     <pre style="background-color: rgb(185, 177, 166); padding-top: 50px; width: 800px; height: 700px;">
-      {{
-        '{
-        "merchantUuid" : "7c1d28eb-dfb2-4e3a-96ac-1ace58aaaf05",
-        "requestUuid" : "d33ed310-9dba-4fef-bc25-8cc17165b461",
-        "firstName" : "user",
-        "lastName" : "testUser",
-        "amount" : 1000,
-        "currency" : "USD",
-        "cardNumber" : "5453131785534417",
-        "cardId" : null,
-        "expiryDate" : "11/22",
-        "cvc2" : "123",
-        "email" : "test@fenige.pl",
-        "addressIp" : "192.0.0.1",
-        "outside3ds" : {
-          "cavv" : "jEu04WZns7pbARAApU4qgNdJTag=",
-          "cavvAlgorithm" : "01",
-          "eci" : "02",
-          "authenticationStatus" : "Y",
-          "transactionXId" : "d543820d-683e-4589-86d9-6c9e40db4b53"
-        },
-        "terminalUrl" : "https://ecom-staging.fenige.pl/payments",
-        "transactionRef" : "27F3250GU3"
-      }'
-      }}
-      
+      {{output}}
     </pre>
   </div>
   <div class="right-area">
     <p>Type here your data:</p>
-    <textarea style="width: 800px; height: 750px;"></textarea>
+    <textarea [(ngModel)]='input' style="width: 800px; height: 750px;">
+    </textarea>
   </div>
-  <div style="text-align: center;">
-    <button style="width: 180px; height: 100px;">Convert!</button>
-  </div>
-  
-
 </div>
-
+  
 <router-outlet></router-outlet>

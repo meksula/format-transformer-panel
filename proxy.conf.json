@@ -1,0 +1,11 @@
+{
+
+    "/api": {
+      "target": "http://format-transformer.io",
+      "secure": true,
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/api": ""
+      }
+    }
+  }
