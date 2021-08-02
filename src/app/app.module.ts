@@ -5,10 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { StatsComponent } from './stats/stats.component';
+import { TransformComponent } from './transform/transform.component';
+import { ActivitiesComponent } from './activities/activities.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    StatsComponent,
+    TransformComponent,
+    ActivitiesComponent
   ],
   imports: [
     BrowserModule,

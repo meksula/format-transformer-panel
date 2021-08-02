@@ -1,0 +1,47 @@
+<style>
+  .wrapper {
+    min-height: 1000px;
+  }
+  .left-area {
+    display: inline-block;
+    width: 50%;
+    min-height: 100%;
+  }
+  .right-area {
+    display: inline-block;
+    width: 50%;
+    float: left;
+    min-height: 100%;
+  }
+</style>
+
+<div class="wrapper">
+  <div>
+    <div style="display: inline-block; width: 20%; float: left;">
+      <p>Convert from:</p>
+      <select name="formatFrom" [(ngModel)]="formatFrom">
+        <option *ngFor="let option of options" [value]="option" >{{option}}</option>
+      </select>
+    </div>
+    <div style="display: inline-block; width: 20%; float: left;">
+      <p>Convert to:</p>
+      <select name="formatTo" [(ngModel)]="formatTo">
+        <option *ngFor="let option of options" [value]="option" >{{option}}</option>
+      </select>
+    </div>
+  </div>
+  <div style="display: inline-block; width: 20%;">
+    <button style="width: 150px; height: 80px;" (click)="convert()">Convert!</button>
+  </div>
+  <div class="left-area">
+    <p>Output:</p>
+    <pre style="background-color: rgb(185, 177, 166); padding-top: 50px; padding-left: 70px; width: 800px; height: 700px;">
+      {{output}}
+    </pre>
+  </div>
+  <div class="right-area">
+    <p>Type here your data:</p>
+    <textarea [(ngModel)]='input' style="width: 800px; height: 750px;">
+    </textarea>
+  </div>
+</div>
