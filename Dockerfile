@@ -1,4 +1,4 @@
-FROM node:stretch as build
+FROM node:14-slim as build
 
 RUN apt-get update \
  && apt-get install -y procps git net-tools curl vim \
@@ -12,6 +12,6 @@ WORKDIR /format-transformer-panel
 
 RUN ng build
 
-FROM nginx:1.21.1
+FROM nginx:1.21.1-alpine
 
 COPY --from=build /format-transformer-panel/dist/format-transformer-panel /usr/share/nginx/html

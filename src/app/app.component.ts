@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -33,12 +34,12 @@ export class AppComponent {
       'Content-Type': 'application/json',
       'Accept': 'application/json'
     });
-     this.http.post('http://format-transformer.io/api/v1/transformation', json, {headers: corsHeaders})
+     this.http.post(environment.apiUrl + '/api/v1/transformation', json, {headers: corsHeaders})
               .subscribe(resp => {
                 let body = JSON.parse(JSON.stringify(resp));
                 this.output = atob(body.encodedData);
                });
-    
+
             // this.http.post('http://localhost:7000/api/v1/transformation', json, {headers: corsHeaders})
             //  .subscribe(resp => {
               // let body = JSON.parse(JSON.stringify(resp));
