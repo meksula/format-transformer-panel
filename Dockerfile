@@ -10,7 +10,7 @@ COPY . /format-transformer-panel
 
 WORKDIR /format-transformer-panel
 
-RUN ng build --configuration development
+RUN ng build --configuration production
 
 FROM nginx:1.21.1-alpine
 
